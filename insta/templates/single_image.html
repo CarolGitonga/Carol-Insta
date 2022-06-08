@@ -41,7 +41,7 @@
                               </div>
                             </div>
                           </div>
-                          <h3 class="card-title">{{ post.user }}</h3>
+                          <h3 class="card-title">{{ image.user }}</h3>
                           <a href="{% url 'likeImage' image.id %}"><i class="far fa-heart fa-2x" style="color:black;">  {{ post.like }}</i></a>
                           <p class="card-text lead"><small class="text-muted">Posted {{ post.date| timesince }} ago</small></p>
                           <h4 class="" style="text-decoration: underline;">Write a comment...</h4>

@@ -77,7 +77,7 @@ def add_image(request):
             image.profile = user
             image.user = userX
             image.save()
-            return redirect('')
+            return redirect('/')
         else:
             return False
     
