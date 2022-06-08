@@ -1,0 +1,89 @@
+{%include 'base.html'%}
+{% load static %}
+{% load tz %}
+{% load cloudinary %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}"> 
+ 
+{% endblock  %}
+  
+
+{% block content %} 
+<div class="container">
+  <div class="insta">
+      <a href="#" ><img  class="lik" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe0yrji0ytUfz7b7cH9k7dcMZrJfafodPIVQ&usqp=CAU" alt=""class="rounded-circle border"height="80" width="80" style="border-radius: 50%;"></a>
+      <a href="#" ><img  class="lik" src="https://u5w6q7g2.stackpathcdn.com/blog/wp-content/uploads/2015/03/Using-Instagram-for-Business-Essay-Sample.jpg" alt=""class="rounded-circle border"height="80" width="80" style="border-radius: 50%;"></a>
+      <a href="#" ><img  class="lik" src="https://www.travel-intel.com/wp-content/uploads/2022/05/Tourism-takes-off-summer-2022.jpg" alt=""class="rounded-circle border"height="80" width="80" style="border-radius: 50%;"></a> 
+      <a href="#" ><img  class="lik" src="https://www.sampleposts.com/wp-content/uploads/2020/04/Instagram-captions-for-girls.jpg" alt=""class="rounded-circle border"height="80" width="80" style="border-radius: 50%;"></a> 
+      <a href="#" ><img  class="lik" src="https://images.theconversation.com/files/368263/original/file-20201109-22-lqiq5c.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop" alt=""class="rounded-circle border"height="80" width="80" style="border-radius: 50%;"></a>  
+  </div>
+</div>
+
+<div class="container">
+
+  <form class="form-group md-form mr-auto mb-4" action="{% url 'search_results' %}">
+    <input class="form-control mr-sm-2" name="users" type="text" placeholder="Search Users" aria-label="Search">
+  <button class="btn btn-danger btn-rounded btn-sm my-0" type="submit">Search</button>
+  </form>
+<br>
+  <!-- Jumbotron -->
+
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+
+        {% for items in posts %}
+        <div class="row mb-2 profile">
+          <img style="float: left;" class="img-fluid rounded-circle" src="{{ items.profile.avatar.url }}" alt="avatar">
+          <h4 style="margin-left: 10px;"><strong><a href="{% url 'profile' items.profile.user %}"><span>{{ items.user }}</span></a></strong><br><small>
+            <span class="text-muted">{{ items.date| timesince }} ago..</span>
+          </small></h4>
+        </div>
+      
+        <div>
+          <div class="view overlay">    
+            <img src="{{items.image.url}}" class="img-fluid" alt="{{ items.image_name }}">
+          <a href="{% url 'singleImage' items.id %}">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+      
+        <h4 class="h4 mt-3">{{ items.image_name }}</h4>
+      
+        <p class="lead card-text">{{ items.caption }}</p>
+      
+        <!-- Linkedin -->
+        <a href="{% url 'likeImage' items.id %}" class="fa-lg p-2 li-ic"><i class="far fa-heart" style="color: black;">  <span class="text-muted">{{ items.like }}</span></i></a>
+        <!-- Twitter -->
+        <a href="{% url 'singleImage' items.id %}" class="fa-lg p-2 m-2 tw-ic"><i class="fas fa-comment" style="color: black;">  <span class="text-muted">Comment</span></i></a>
+        <br>
+        <a class="btn btn-outline-info btn-sm" href="{% url 'singleImage' items.id %}">View Image</a>
+
+        <hr>
+        <br>
+        {% empty %}
+        <h2 class="text-center" style="text-decoration: underline;">No Posts Available</h2>
+
+        {% endfor %}
+      
+      </div>
+
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+ 
+</div>
+</div>
+
+<footer class="page-footerk font-small color-dark pt-4">
+  <!-- Copyright -->
+  <div class="footer-copyright text-dark text-center py-3">Copyright (c) 2022
+    <a href="https://github.com/carol-profile" target="_blank"> Carol Gitonga</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+  {% endblock %}
