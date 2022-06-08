@@ -19,8 +19,7 @@ A django based application that is a replication of the instagram app. Users are
 ## How to run the app
 
 Please run the following command on your terminal on linux to clone our project:
-
-git clone [Carol-Insta](git@github.com:carol-profile/Carol-Insta.git)
+`git clone git@github.com:carol-profile/Carol-Insta.git`
 Create a virtual environment for the app and run python3 manage.py runserver to serve the app.
 
 
@@ -35,9 +34,8 @@ Create a virtual environment for the app and run python3 manage.py runserver to 
 
 
 
-### Link to view the app (heroku)
-
-[Carol-Insta]()
+### Live link
+You can view the live site [here](https://carolinsta.herokuapp.com/)
 
 
 ## License ([MIT License](http://choosealicense.com/licenses/mit/))
