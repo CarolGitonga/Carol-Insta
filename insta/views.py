@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout as django_logout
 from django.urls import reverse
-from django.contrib.sites.shortcuts import get_current_site
 
 
 
