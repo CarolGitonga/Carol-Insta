@@ -30,6 +30,9 @@ Create a virtual environment for the app and run python3 manage.py runserver to 
 + [x] Postgres
 + [x] Django
 + [x] Bootstrap5
++ [x] CSS
++ [x] HTML
+
 
 
 ### Link to view the app (heroku)
